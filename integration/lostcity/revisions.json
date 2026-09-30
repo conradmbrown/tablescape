@@ -1,0 +1,7 @@
+{
+  "engine": {"repository": "https://github.com/LostCityRS/Engine2007.git", "commit": "e90b2f48d92394253e9e35d886ec2e419b5b3770"},
+  "client": {"repository": "https://github.com/LostCityRS/OS1.git", "commit": "4e52385dd1dc6437832fd11635886b8d388f436a"},
+  "cache": {"provider": "https://archive.openrs2.org", "id": 241, "selection": "Engine2007 upstream OpenRs2.OSRS_1"},
+  "node": {"version": "24.21.0", "sha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6"},
+  "java": {"version": "Temurin 8u504-b01", "sha256": "9c70e102f527ac674ac2fe9c7d47b9a04e2d19842ba5ab8e9b33f368bbadfaea"}
+}

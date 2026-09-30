@@ -1,0 +1,20 @@
+# Template: replace /path/to/scape-tabletop and configure the environment before installing.
+[Unit]
+Description=Lost City native Unity browser test session
+After=scape-playable274.service
+Requires=scape-playable274.service
+
+[Service]
+EnvironmentFile=%h/.config/tablescape/runtime.env
+Type=simple
+WorkingDirectory=/path/to/scape-tabletop
+ExecStart=/bin/bash /path/to/scape-tabletop/scripts/run-browser-stream.sh
+Restart=on-failure
+RestartSec=5
+KillMode=control-group
+TimeoutStopSec=20
+StandardOutput=append:/path/to/scape-tabletop/Saved/browser-stream/service.log
+StandardError=inherit
+
+[Install]
+WantedBy=default.target

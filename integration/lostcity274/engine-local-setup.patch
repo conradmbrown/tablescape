@@ -1,0 +1,44 @@
+diff --git a/src/server/tcp/TcpServer.ts b/src/server/tcp/TcpServer.ts
+index 8676413..b91d3b5 100644
+--- a/src/server/tcp/TcpServer.ts
++++ b/src/server/tcp/TcpServer.ts
+@@ -67,6 +67,6 @@ export default class TcpServer {
+             });
+         });
+ 
+-        this.tcp.listen(Environment.node.port, '0.0.0.0', () => {});
++        this.tcp.listen(Environment.node.port, '127.0.0.1', () => {});
+     }
+ }
+diff --git a/src/web.ts b/src/web.ts
+index dbc9b2c..0e44eb1 100644
+--- a/src/web.ts
++++ b/src/web.ts
+@@ -302,7 +302,7 @@ fastify.register(FastifyStatic, {
+ });
+ 
+ export async function startWeb() {
+-    await fastify.listen({ port: Environment.web.port, host: '0.0.0.0' });
++    await fastify.listen({ port: Environment.web.port, host: '127.0.0.1' });
+ }
+ 
+ // management routes
+@@ -344,5 +344,5 @@ management.put('/setup/config', async req => {
+ });
+ 
+ export async function startManagementWeb() {
+-    await management.listen({ port: Environment.web.managementPort, host: '0.0.0.0' });
++    await management.listen({ port: Environment.web.managementPort, host: '127.0.0.1' });
+ }
+diff --git a/tools/pack/Compiler.ts b/tools/pack/Compiler.ts
+index 6b5f4ec..399feb0 100644
+--- a/tools/pack/Compiler.ts
++++ b/tools/pack/Compiler.ts
+@@ -335,6 +335,7 @@ export function runServerCompiler() {
+     ]);
+ 
+     CompileServerScript({
++        sourcePaths: [`${Environment.build.srcDir}/scripts`],
+         symbols: {
+             command: commandInfo,
+ 

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/jagex3/client/Client.java b/src/main/java/jagex3/client/Client.java
+index afc3ee0..64fc45e 100644
+--- a/src/main/java/jagex3/client/Client.java
++++ b/src/main/java/jagex3/client/Client.java
+@@ -1389,6 +1389,7 @@ public class Client extends GameShell {
+ 			GameShell.doneslowupdate();
+ 		} else if (state == 10) {
+ 			TitleScreen.loop(this);
++			if (Boolean.getBoolean("scape.localTestLogin") && "localhost".equals(loginHost)) { TitleScreen.loginUser="tabletop"; TitleScreen.loginPass="local-test-only"; setMainState(20); }
+ 		} else if (state == 20) {
+ 			TitleScreen.loop(this);
+ 			loginPoll();
+@@ -4184,6 +4185,7 @@ public class Client extends GameShell {
+ 
+ 		doAudio();
+ 		world.renderAll(camX, camY, camZ, camPitch, camYaw, var62);
++		local.scape.LostCitySceneExport.capture();
+ 
+ 		doAudio();
+ 		world.removeSprites();

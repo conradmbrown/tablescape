@@ -1,0 +1,16 @@
+# Template: replace /path/to/scape-tabletop and configure the environment before installing.
+[Unit]
+Description=Lost City OS1 local protocol server
+
+[Service]
+EnvironmentFile=%h/.config/tablescape/runtime.env
+Type=simple
+WorkingDirectory=/path/to/scape-tabletop
+ExecStart=/bin/bash /path/to/scape-tabletop/scripts/start-lostcity-server.sh
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/path/to/scape-tabletop/Saved/scape-lostcity-engine.log
+StandardError=inherit
+
+[Install]
+WantedBy=default.target

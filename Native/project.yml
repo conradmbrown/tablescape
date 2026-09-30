@@ -1,0 +1,72 @@
+name: TableScape
+options:
+  bundleIdPrefix: com.innoiso
+  deploymentTarget:
+    visionOS: '26.0'
+settings:
+  base:
+    ARCHS: arm64
+    SWIFT_VERSION: '5.0'
+    TARGETED_DEVICE_FAMILY: '7'
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CLANG_ENABLE_MODULES: YES
+    SWIFT_OPTIMIZATION_LEVEL: '-O'
+    MTL_ENABLE_DEBUG_INFO: INCLUDE_SOURCE
+    ENABLE_PREVIEWS: NO
+    COMPILER_INDEX_STORE_ENABLE: NO
+    PRODUCT_NAME: TableScape
+targets:
+  TableScape:
+    type: application
+    platform: visionOS
+    sources:
+      - path: TableScape
+        excludes: [Resources, Tests, Rendering/TableScape.metal, "**/*.md", "**/*.sh"]
+      - path: TableScape/Resources/AssetPack
+        type: folder
+        buildPhase: resources
+      - path: TableScape/Resources/Icons
+        type: folder
+        buildPhase: resources
+      - path: TableScape/Resources/Feedback
+        type: folder
+        buildPhase: resources
+      - path: TableScape/Resources/pack-manifest.json
+        buildPhase: resources
+      - path: TableScape/Resources/TableScapeShaders.txt
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.innoiso.tablescape.native
+        INFOPLIST_FILE: Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        "CODE_SIGN_ENTITLEMENTS[sdk=xrsimulator*]": Simulator.entitlements
+    dependencies:
+      - sdk: Metal.framework
+      - sdk: MetalKit.framework
+      - sdk: ARKit.framework
+      - sdk: CompositorServices.framework
+      - sdk: AVFoundation.framework
+  TableScapeUITests:
+    type: bundle.ui-testing
+    platform: visionOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: TableScape
+    settings:
+      base:
+        PRODUCT_NAME: TableScapeUITests
+        PRODUCT_MODULE_NAME: TableScapeUITests
+        PRODUCT_BUNDLE_IDENTIFIER: com.innoiso.tablescape.uitests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  TableScape:
+    build:
+      targets:
+        TableScape: all
+    test:
+      targets: [TableScapeUITests]
+    run:
+      config: Debug

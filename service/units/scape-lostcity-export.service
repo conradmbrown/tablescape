@@ -1,0 +1,18 @@
+# Template: replace /path/to/scape-tabletop and configure the environment before installing.
+[Unit]
+Description=Lost City OS1 scene exporter
+After=scape-lostcity-engine.service
+Requires=scape-lostcity-engine.service
+
+[Service]
+EnvironmentFile=%h/.config/tablescape/runtime.env
+Type=simple
+WorkingDirectory=/path/to/scape-tabletop
+ExecStart=/usr/bin/xvfb-run --auto-servernum /bin/bash /path/to/scape-tabletop/scripts/run-lostcity-client.sh -Dscape.localTestLogin=true
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/path/to/scape-tabletop/Saved/scape-lostcity-export.log
+StandardError=inherit
+
+[Install]
+WantedBy=default.target

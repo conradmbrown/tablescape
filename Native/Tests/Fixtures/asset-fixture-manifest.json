@@ -1,0 +1,26 @@
+{
+  "revision": 274,
+  "source": "Original Lost City gateway cache definitions; no sessions, tokens, passwords, or account records",
+  "effectTypes": [
+    91,
+    92,
+    111
+  ],
+  "effectModels": [
+    3081,
+    3082,
+    3091
+  ],
+  "effectSequences": [
+    659,
+    660,
+    667
+  ],
+  "deathSequence": 836,
+  "sha256": {
+    "original-effects.json": "84bdbef8de0a0cceb316487735a5b5eb2ebe5f1535ea6b30381abc1f324dfcb0",
+    "death-sequence.json": "f3588aa06f61e0f86197266bcfc4f24762213750c469a21a8f16ce98d100ff84",
+    "idle-sequence.json": "0f9e49840b86b6e26a938ef46ff6f9089e6d148d7ecd9ff9aa2593b2d9d668ae"
+  },
+  "idleSequence": 808
+}

@@ -1,0 +1,57 @@
+Binaries/
+Intermediate/
+/Saved/
+DerivedDataCache/
+__pycache__/
+Unity/Library/
+Unity/Temp/
+Unity/Logs/
+data/live*
+connector/.gradle/
+connector/build/
+vendor/
+runtime/
+data/client-home/
+data/lostcity*
+
+# Local tools, credentials, game saves and generated builds
+/Builds/
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.alf
+*.ulf
+.DS_Store
+/Unity/Assets/Scape/Generated/
+/Unity/Assets/Scape/Generated.meta
+/Content/
+
+# Native builds and generated Xcode files stay on the external SSD.
+Native/TableScape.xcodeproj/
+Native/.swiftpm/
+Native/TableScape/Resources/AssetPack/
+Native/TableScape/Resources/Icons/
+Native/TableScape/Resources/Feedback/
+
+# Deployment notes and per-machine runtime material are local only.
+/docs/FOLLOW_THROUGH.md
+/Private/
+/Artifacts/
+/Build/
+PrivateConnection.json
+*.mobileprovision
+
+# Original game assets are supplied locally; never redistribute through Git.
+/Unity/Assets/LostCity274/
+/Unity/Assets/LostCity274.meta
+/Unity/Assets/Scape/Resources/Icons/
+/Unity/Assets/Scape/Resources/Icons.meta
+/Unity/Assets/Scape/Resources/Feedback/
+/Unity/Assets/Scape/Resources/Feedback.meta
+/Unity/Assets/Scape/Resources/Overlays/
+/Unity/Assets/Scape/Resources/Overlays.meta

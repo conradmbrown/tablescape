@@ -1,0 +1,19 @@
+{
+  "web": {
+    "port": 8874,
+    "managementPort": 8897
+  },
+  "build": {
+    "srcDir": "../lostcity-content274",
+    "startup": true
+  },
+  "node": {
+    "id": 10,
+    "port": 43595,
+    "members": true,
+    "autoSubscribeMembers": true,
+    "debug": true,
+    "maxConnected": 10,
+    "clientRoutefinder": false
+  }
+}

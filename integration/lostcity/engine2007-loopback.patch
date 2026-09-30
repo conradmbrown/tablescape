@@ -1,0 +1,26 @@
+diff --git a/src/server/TcpServer.ts b/src/server/TcpServer.ts
+index 34f9b1a..0072ea4 100644
+--- a/src/server/TcpServer.ts
++++ b/src/server/TcpServer.ts
+@@ -51,7 +51,7 @@ export default class TcpServer {
+     start(port: number): Promise<void> {
+         return new Promise((res) => {
+             this.server.listen({
+-                host: '0.0.0.0',
++                host: '127.0.0.1',
+                 port: port
+             }, () => {
+                 console.log(`Listening on port ${port}`);
+diff --git a/src/web/Web.ts b/src/web/Web.ts
+index 031e58e..c834c17 100644
+--- a/src/web/Web.ts
++++ b/src/web/Web.ts
+@@ -35,7 +35,7 @@ fastify.register(fastifyAutoload, {
+ 
+ export async function startWeb() {
+     await fastify.listen({
+-        host: '0.0.0.0',
++        host: '127.0.0.1',
+         port: 7001
+     });
+ }
